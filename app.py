@@ -1,11 +1,12 @@
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import Flask, render_template, request, redirect, url_for
-from config.settings import settings
-
+import os
+from dotenv import load_dotenv, dotenv_values
+load_dotenv()
 app = Flask(__name__)
 #Подключаем наш конфиг в конфиг приложения
-app.config.from_object(settings)
+
 
 @app.route('/maksimmolodec',methods=("POST", "GET"))
 def pizdec():
@@ -14,4 +15,4 @@ def pizdec():
     return 'максим  молодец'
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=settings.PORT)
+    app.run(host="0.0.0.0", port=os.getenv)
