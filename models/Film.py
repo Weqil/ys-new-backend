@@ -10,4 +10,5 @@ class Film(db.Model):
       country = Column(String(128),nullable=False)
       prewiev = Column(String(128),nullable=False)
       video = Column(String, nullable=False)
+      category = relationship('filmCategory')
       user_create_id = Column(Integer,ForeignKey('admins.id'),nullable=False)
