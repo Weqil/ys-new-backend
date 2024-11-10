@@ -1,22 +1,22 @@
 from flask import Flask, render_template, request, redirect, url_for
-class FilmController:
+class CategoryController:
     @staticmethod
-    def getAllFilms():
+    def getAllCategories():
         return 'фильм'
     
     @staticmethod
-    def  getFilmById():
+    def getCategoriesById():
         return 'фильм по id'
     
     @staticmethod
-    def deleteFilmById():
+    def deleteCategoriesById():
         return ' Удалил фильм'
     
     @staticmethod
-    def createFilm():
-        
-        return 'Создал фильм'
+    def createCategory():
+        json_data = request.get_json()
+        return json_data
     
     @staticmethod
-    def editFilmByID():
+    def editCategoryByID():
         return 'фильм изменён'
