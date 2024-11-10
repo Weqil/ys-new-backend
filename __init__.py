@@ -12,6 +12,8 @@ app.config.from_object(Config)
 #Прослушиваем файл роутов 
 from routes.routes import *
 from database import db
+from models.Film import Film
+from models.Admins import Admin
 app.app_context().push()
 if __name__ == "__main__":
     app.run(debug=True)
