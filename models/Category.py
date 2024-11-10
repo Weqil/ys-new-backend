@@ -5,4 +5,4 @@ class Category(db.Model):
       __tablename__ = 'category'
       id = Column(Integer, primary_key=True, index=True)
       name = Column(String(),nullable = False)
-      films = relationship('filmCategory')
+      films = relationship('Film', secondary='filmCategory', back_populates='categories')

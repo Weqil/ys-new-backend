@@ -1,3 +1,4 @@
+
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
 from database import db
 from sqlalchemy.orm import relationship
@@ -10,5 +11,6 @@ class Film(db.Model):
       country = Column(String(128),nullable=False)
       prewiev = Column(String(128),nullable=False)
       video = Column(String, nullable=False)
-      category = relationship('filmCategory')
       user_create_id = Column(Integer,ForeignKey('admins.id'),nullable=False)
+      actors = relationship('Actor', secondary='filmActor', back_populates='films')
+      categories = relationship('Category', secondary='filmCategory', back_populates='films')

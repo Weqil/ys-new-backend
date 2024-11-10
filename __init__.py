@@ -5,6 +5,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import os
 from dotenv import load_dotenv, dotenv_values
 from config import Config
+from seeds.seeds import setAllSeeds
 
 load_dotenv()
 app = Flask(__name__)
@@ -12,9 +13,14 @@ app.config.from_object(Config)
 #Прослушиваем файл роутов 
 from routes.routes import *
 from database import db
-from models.MainModal import *
+from models.filmCategory import FilmCategory
+
+
+from models.MainModel import *
 app.app_context().push()
+
 if __name__ == "__main__":
     app.run(debug=True)
-
 db.create_all()
+
+setAllSeeds()
